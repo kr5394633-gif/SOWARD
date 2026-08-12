@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database (Optional)
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: sowardbot
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-sowardbot123}
+      POSTGRES_DB: sowardbot
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sowardbot"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # SowardBot Application
+  sowardbot:
+    build: .
+    environment:
+      # Discord Bot (REQUIRED - set in .env)
+      TOKEN: ${TOKEN}
+      
+      # API Configuration
+      API_PORT: 3000
+      API_HOST: 0.0.0.0
+      
+      # Database (Optional)
+      DATABASE_URL: ${DATABASE_URL:-postgresql://sowardbot:sowardbot123@postgres:5432/sowardbot}
+      
+      # Logging
+      LOG_LEVEL: INFO
+      
+      # Lavalink (Optional)
+      LAVALINK_HOST: ${LAVALINK_HOST:-localhost}
+      LAVALINK_PORT: ${LAVALINK_PORT:-2333}
+      LAVALINK_PASSWORD: ${LAVALINK_PASSWORD:-youshallnotpass}
+    
+    ports:
+      - "3000:3000"  # Dashboard
+    
+    depends_on:
+      postgres:
+        condition: service_healthy
+    
+    volumes:
+      - ./logs:/app/logs
+    
+    restart: unless-stopped
+
+volumes:
+  postgres_data:

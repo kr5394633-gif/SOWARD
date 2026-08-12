@@ -1,0 +1,83 @@
+# .dockerignore - Exclude unnecessary files from Docker build
+
+# Git
+.git/
+.gitignore
+.github/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.coverage.*
+.cache
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+
+# Node/NPM
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# IDE & OS
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+
+# Build artifacts
+dist/
+build/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Documentation
+README.md
+DEPLOY_NOW.md
+GITHUB_TO_RAILWAY.md
+RAILWAY_DEPLOY.md
+DEPLOYMENT_READY.md
+00_START_HERE.txt
+BUILD_GUIDE.md
+SETUP_COMPLETE.md
+API_ENDPOINTS.md
+*.md
+
+# Tests
+test_output/
+coverage/
+.pytest_cache/
+
+# Dashboard build (we'll rebuild in Docker)
+dashboard/node_modules/
+dashboard/build/
+
+# Optional
+secrets/
