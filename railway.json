@@ -1,0 +1,18 @@
+{
+  "$schema": "https://railway.app/railway.schema.json",
+  "build": {
+    "builder": "NIXPACKS"
+  },
+  "deploy": {
+    "startCommand": "python launcher.py",
+    "numReplicas": 1,
+    "restartPolicyType": "always",
+    "restartPolicyMaxRetries": 10
+  },
+  "environmentVariables": {
+    "PORT": {
+      "description": "API server port",
+      "default": "3000"
+    }
+  }
+}

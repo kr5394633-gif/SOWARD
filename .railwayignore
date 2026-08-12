@@ -1,0 +1,13 @@
+# Railway ignore file - similar to .gitignore
+node_modules/
+.git/
+.venv/
+venv/
+__pycache__/
+*.pyc
+.env.local
+.DS_Store
+dist/
+build/
+.pytest_cache/
+.coverage

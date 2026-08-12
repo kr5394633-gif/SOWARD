@@ -1,34 +1,44 @@
-# Gradle files
-.gradle/
+# Environment - CRITICAL: Never commit .env with secrets!
+.env
+.env.local
+.env.*.local
+
+# Virtual environments
+/venv
+.venv
+env/
+
+# Build & Distribution
+dist/
 build/
+*.egg-info/
+*.pyc
 
-# Local configuration file (sdk path, etc)
-local.properties
+# IDE & OS
+.vscode
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
 
-# Log/OS Files
+# Logs
+/logs
 *.log
 
-# Android Studio generated files and folders
-captures/
-.externalNativeBuild/
-.cxx/
-*.aab
-*.apk
-output-metadata.json
+# Python cache
+__pycache__/
+.pytest_cache/
 
-# IntelliJ
-*.iml
-.idea/
-misc.xml
-deploymentTargetDropDown.xml
-render.experimental.xml
+# Node
+node_modules/
+package-lock.json
 
-# Keystore files
-*.jks
-*.keystore
+# Database
+*.db
+*.sqlite3
 
-# Google Services (e.g. APIs or Firebase)
-google-services.json
-
-# Android Profiling
-*.hprof
+# Cache
+.cache/
+.coverage/

@@ -1,0 +1,16 @@
+discord
+psutil
+requests
+fastapi
+uvicorn
+python-dotenv
+asyncpg
+Pillow
+pytz
+colorama
+wavelink
+chat-exporter
+humanize
+PyNaCl
+PyInstaller
+pyinstaller-hooks-contrib
